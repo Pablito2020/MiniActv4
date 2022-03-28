@@ -15,14 +15,14 @@ class MusicPlayer : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        Toast.makeText(this, R.string.creaserv, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, R.string.created_music_service, Toast.LENGTH_SHORT).show()
         musicPlayer = MediaPlayer.create(this, R.raw.asereje)
         musicPlayer.isLooping = true
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
-        Toast.makeText(this, R.string.iniserv, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, R.string.init_music_service, Toast.LENGTH_SHORT).show()
         musicPlayer.start()
         return startId
     }
@@ -31,7 +31,7 @@ class MusicPlayer : Service() {
         super.onDestroy()
         if (musicPlayer.isPlaying) {
             musicPlayer.stop()
-            Toast.makeText(this, R.string.finaserv, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.finish_music_service, Toast.LENGTH_SHORT).show()
         }
     }
 

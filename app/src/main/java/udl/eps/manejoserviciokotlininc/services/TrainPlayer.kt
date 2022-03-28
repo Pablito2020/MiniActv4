@@ -17,14 +17,14 @@ class TrainPlayer : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        Toast.makeText(this, R.string.creaserv, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, R.string.create_train_service, Toast.LENGTH_SHORT).show()
         trainPlayer = MediaPlayer.create(this, R.raw.train)
         trainPlayer.isLooping = true
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
-        Toast.makeText(this, R.string.iniserv, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, R.string.init_train_service, Toast.LENGTH_SHORT).show()
         trainPlayer.start()
         return startId
     }
@@ -33,7 +33,7 @@ class TrainPlayer : Service() {
         super.onDestroy()
         if (trainPlayer.isPlaying) {
             trainPlayer.stop()
-            Toast.makeText(this, R.string.finaserv, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, R.string.finished_train_service, Toast.LENGTH_SHORT).show()
         }
     }
 }

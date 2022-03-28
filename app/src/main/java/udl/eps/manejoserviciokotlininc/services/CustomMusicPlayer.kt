@@ -17,12 +17,12 @@ class CustomMusicPlayer : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        Toast.makeText(this, R.string.creaserv, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, R.string.created_custom_music_service, Toast.LENGTH_LONG).show()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
-        Toast.makeText(this, R.string.iniserv, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, R.string.init_custom_music_service, Toast.LENGTH_LONG).show()
         choosePlayer = MediaPlayer.create(
             this,
             Uri.parse(intent?.getStringExtra(MUSIC_URI).toString())
@@ -34,8 +34,10 @@ class CustomMusicPlayer : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if (choosePlayer != null && choosePlayer?.isPlaying == true)
+        if (choosePlayer != null && choosePlayer?.isPlaying == true) {
+            Toast.makeText(this, R.string.destroying_custom_player, Toast.LENGTH_SHORT).show()
             choosePlayer?.stop()
+        }
     }
 
 }

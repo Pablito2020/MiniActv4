@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="20dp"
-        android:text="@string/tituloAct"
+        android:text="@string/headerActivity"
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
 
@@ -45,6 +45,6 @@
         android:id="@+id/finishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/botoFin" />
+        android:text="@string/button_finish" />
 
 </LinearLayout>

@@ -1,11 +1,17 @@
 <resources>
-    <string name="app_name">ManejoServicioKotlin</string>
-    <string name="creaserv">Servicio creado</string>
-    <string name="finaserv">Servicio finalizado</string>
-    <string name="iniserv">Servicio iniciado</string>
-    <string name="trainButton">Iniciar tren</string>
-    <string name="botoFin">Detener</string>
-    <string name="tituloAct">Utilización de Servicios</string>
-    <string name="music_button_info">Iniciar música</string>
+    <string name="app_name">Mini Actv 4</string>
+    <string name="trainButton">Play Train Sound</string>
+    <string name="button_finish">Finish</string>
+    <string name="headerActivity">Usage of Services</string>
+    <string name="music_button_info">Start playing</string>
     <string name="choose_button_info">Choose Music from player</string>
+    <string name="destroying_custom_player">Finishing Custom Music Service</string>
+    <string name="created_custom_music_service">Created custom music service</string>
+    <string name="created_music_service">Created music service</string>
+    <string name="finish_music_service">Finished music service</string>
+    <string name="create_train_service">Created train service</string>
+    <string name="finished_train_service">Finished train service</string>
+    <string name="init_train_service">Initialized Train Service</string>
+    <string name="init_music_service">Initialized Music Service</string>
+    <string name="init_custom_music_service">Initialized custom music service</string>
 </resources>
