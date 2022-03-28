@@ -28,7 +28,17 @@
 
 
         <service
-            android:name=".ElServicio"
+            android:name=".services.CustomMusicPlayer"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name=".services.MusicPlayer"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name=".services.TrainPlayer"
             android:enabled="true"
             android:exported="false" />
 
