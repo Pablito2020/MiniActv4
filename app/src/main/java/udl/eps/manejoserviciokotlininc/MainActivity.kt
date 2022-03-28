@@ -1,10 +1,12 @@
 package udl.eps.manejoserviciokotlininc
 
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import udl.eps.manejoserviciokotlininc.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.finishButton.setOnClickListener(this)
         binding.musicButton.setOnClickListener(this)
         binding.trainButton.setOnClickListener(this)
+        registerReceiver(AudioReceiver(), IntentFilter(Intent.ACTION_HEADSET_PLUG))
         mediaIntent = Intent(this, AudioReceiver::class.java)
     }
 
