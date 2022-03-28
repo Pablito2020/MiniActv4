@@ -64,4 +64,17 @@
         android:layout_marginBottom="99dp"
         android:text="@string/button_finish" />
 
+    <Button
+        android:id="@+id/ownMusicButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/chooseMusicButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="87dp"
+        android:layout_marginEnd="157dp"
+        android:layout_marginBottom="68dp"
+        android:text="@string/own_music_player_button" />
+
 </RelativeLayout>

@@ -10,6 +10,7 @@ class ButtonActionFactory(private val binding: ActivityMainBinding, activity: Co
 
     init {
         MusicChooserAction.Initializer.setUp(activity)
+        CustomMediaPlayerAction.Initializer.setUp(activity)
     }
 
     fun getAction(buttonId: Int) = when (buttonId) {
@@ -17,6 +18,7 @@ class ButtonActionFactory(private val binding: ActivityMainBinding, activity: Co
         binding.finishButton.id -> FinishAction(context)
         binding.musicButton.id -> MusicAction(context)
         binding.chooseMusicButton.id -> MusicChooserAction()
+        binding.ownMusicButton.id -> CustomMediaPlayerAction()
         else -> throw Error("Unsupported button")
     }
 
