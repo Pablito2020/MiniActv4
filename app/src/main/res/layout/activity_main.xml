@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tituloAct"
         android:gravity="center"
-        android:textSize="20sp"
         android:padding="20dp"
+        android:text="@string/tituloAct"
+        android:textSize="20sp"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
@@ -21,18 +21,23 @@
         tools:ignore="MissingConstraints">
 
         <Button
-            android:text="@string/botoIn"
-            android:id="@+id/btnIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </Button>
-
-        <Button
+            android:id="@+id/trainButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/botoFin"
-            android:id="@+id/btnFin">
-        </Button>
+            android:text="@string/trainButton" />
+
+        <Button
+            android:id="@+id/musicButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/music_button_info" />
+
+        <Button
+            android:id="@+id/finishButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/botoFin" />
 
     </LinearLayout>
 
