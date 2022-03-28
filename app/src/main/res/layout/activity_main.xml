@@ -33,12 +33,18 @@
             android:layout_weight="1"
             android:text="@string/music_button_info" />
 
-        <Button
-            android:id="@+id/finishButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/botoFin" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/chooseMusicButton"
+        android:layout_width="149dp"
+        android:layout_height="91dp"
+        android:text="@string/choose_button_info" />
+
+    <Button
+        android:id="@+id/finishButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botoFin" />
 
 </LinearLayout>

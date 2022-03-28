@@ -3,6 +3,7 @@ package udl.eps.manejoserviciokotlininc
 import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.IBinder
 import android.widget.Toast
 
@@ -10,6 +11,7 @@ class ElServicio : Service() {
 
     private lateinit var trainPlayer: MediaPlayer
     private lateinit var musicPlayer: MediaPlayer
+    private var choosePlayer: MediaPlayer? = null
 
     override fun onBind(p0: Intent?): IBinder = throw NotImplementedError("Unsupported")
 
@@ -25,10 +27,18 @@ class ElServicio : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
         Toast.makeText(this, R.string.iniserv, Toast.LENGTH_LONG).show()
-        if (intent!!.getStringExtra("type") == "train")
-            trainPlayer.start()
-        else
-            musicPlayer.start()
+        when(intent!!.getStringExtra("type")) {
+            "train" -> trainPlayer.start()
+            "music" -> {
+                if (intent.hasExtra("music_uri")) {
+                    choosePlayer = MediaPlayer.create(this, Uri.parse(intent.getStringExtra("music_uri").toString()))
+                    choosePlayer?.isLooping = true
+                    choosePlayer?.start()
+                } else {
+                    musicPlayer.start()
+                }
+            }
+        }
         return startId
     }
 
@@ -41,6 +51,9 @@ class ElServicio : Service() {
         if (musicPlayer.isPlaying) {
             musicPlayer.stop()
             Toast.makeText(this, R.string.finaserv, Toast.LENGTH_LONG).show()
+        }
+        if (choosePlayer != null && choosePlayer?.isPlaying == true) {
+            choosePlayer?.stop()
         }
     }
 

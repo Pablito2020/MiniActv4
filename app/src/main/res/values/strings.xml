@@ -7,4 +7,5 @@
     <string name="botoFin">Detener</string>
     <string name="tituloAct">Utilización de Servicios</string>
     <string name="music_button_info">Iniciar música</string>
+    <string name="choose_button_info">Choose Music from player</string>
 </resources>

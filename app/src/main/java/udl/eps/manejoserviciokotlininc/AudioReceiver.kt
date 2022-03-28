@@ -11,6 +11,7 @@ class AudioReceiver : BroadcastReceiver() {
         requireNotNull(intent)
         val service = Intent(context, ElServicio::class.java)
         service.putExtra("type", intent.getStringExtra("type"))
+        service.putExtra("music_uri", intent.getStringExtra("music_uri"))
         if (intent.action == "android.intent.action.HEADSET_PLUG" && intent.getIntExtra(
                 "state",
                 1
