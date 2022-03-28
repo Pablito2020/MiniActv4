@@ -8,8 +8,8 @@ import udl.eps.manejoserviciokotlininc.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var mediaIntent: Intent
     private lateinit var binding: ActivityMainBinding
+    private lateinit var mediaIntent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,19 +18,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.finishButton.setOnClickListener(this)
         binding.musicButton.setOnClickListener(this)
         binding.trainButton.setOnClickListener(this)
-        mediaIntent = Intent(this, ElServicio::class.java)
+        mediaIntent = Intent(this, AudioReceiver::class.java)
     }
 
     override fun onClick(src: View) {
         when (src.id) {
             binding.trainButton.id -> {
                 mediaIntent.putExtra("type", "train")
-                startService(mediaIntent)
+                sendBroadcast(mediaIntent)
             }
-            binding.finishButton.id -> stopService(mediaIntent)
+            binding.finishButton.id -> {
+                mediaIntent.putExtra("type", "stop")
+                sendBroadcast(mediaIntent)
+            }
             binding.musicButton.id -> {
                 mediaIntent.putExtra("type", "music")
-                startService(mediaIntent)
+                sendBroadcast(mediaIntent)
             }
         }
     }
