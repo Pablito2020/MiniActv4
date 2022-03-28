@@ -8,25 +8,23 @@ import udl.eps.manejoserviciokotlininc.services.TrainPlayer
 
 class ServiceFactory(context: Context) {
 
-    private val map = mutableMapOf(
-        "train" to Intent(context, TrainPlayer::class.java),
-        "music" to Intent(context, MusicPlayer::class.java),
-        "music-custom" to Intent(context, CustomMusicPlayer::class.java),
-        "default-intent" to Intent(context, MusicPlayer::class.java)
-    )
+    private val trainIntent = Intent(context, TrainPlayer::class.java)
+    private val musicIntent = Intent(context, MusicPlayer::class.java)
+    private var musicCustom = Intent(context, CustomMusicPlayer::class.java)
+    private val defaultIntent = Intent(context, MusicPlayer::class.java)
 
     fun getService(intent: Intent): Intent =
         when (intent.getStringExtra("type")) {
-            "train" -> map["train"]!!
-            "music" -> map["music"]!!
+            "train" -> trainIntent
+            "music" -> musicIntent
             "music-custom" -> {
-                map["music-custom"] =
-                    map["music-custom"]!!.putExtra("music_uri", intent.getStringExtra("music_uri"))
-                map["music-custom"]!!
+                musicCustom = musicCustom.putExtra("music_uri", intent.getStringExtra("music_uri"))
+                musicCustom
             }
-            else -> map["default-intent"]!!
+            else -> defaultIntent
         }
 
-    fun getServices(): Collection<Intent> = map.map { (_, value) -> value }
+    fun getServices(): Collection<Intent> =
+        listOf(trainIntent, musicIntent, musicCustom, defaultIntent)
 
 }
