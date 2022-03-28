@@ -11,7 +11,6 @@ class AudioReceiver : BroadcastReceiver() {
         requireNotNull(intent)
         val service = Intent(context, ElServicio::class.java)
         service.putExtra("type", intent.getStringExtra("type"))
-        service.putExtra("music_uri", intent.getStringExtra("music_uri"))
         if (intent.action == "android.intent.action.HEADSET_PLUG" && intent.getIntExtra(
                 "state",
                 1
@@ -28,6 +27,10 @@ class AudioReceiver : BroadcastReceiver() {
         } else {
             when (intent.getStringExtra("type")) {
                 "train", "music" -> context.startService(service)
+                "music-custom" -> {
+                    service.putExtra("music_uri", intent.getStringExtra("music_uri"))
+                    context.startService(service)
+                }
                 "stop" -> context.stopService(service)
                 else -> throw Error("Unsupported type")
             }

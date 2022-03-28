@@ -27,16 +27,16 @@ class ElServicio : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
         Toast.makeText(this, R.string.iniserv, Toast.LENGTH_LONG).show()
-        when(intent!!.getStringExtra("type")) {
+        when (intent!!.getStringExtra("type")) {
             "train" -> trainPlayer.start()
-            "music" -> {
-                if (intent.hasExtra("music_uri")) {
-                    choosePlayer = MediaPlayer.create(this, Uri.parse(intent.getStringExtra("music_uri").toString()))
-                    choosePlayer?.isLooping = true
-                    choosePlayer?.start()
-                } else {
-                    musicPlayer.start()
-                }
+            "music" -> musicPlayer.start()
+            "music-custom" -> {
+                choosePlayer = MediaPlayer.create(
+                    this,
+                    Uri.parse(intent.getStringExtra("music_uri").toString())
+                )
+                choosePlayer?.isLooping = true
+                choosePlayer?.start()
             }
         }
         return startId
