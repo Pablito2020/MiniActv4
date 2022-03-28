@@ -2,6 +2,9 @@ package udl.eps.manejoserviciokotlininc.factory
 
 import android.content.Context
 import android.content.Intent
+import udl.eps.manejoserviciokotlininc.constants.CustomMusicExtras.MUSIC_URI
+import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.SERVICE_TYPE
+import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.TYPE
 import udl.eps.manejoserviciokotlininc.services.CustomMusicPlayer
 import udl.eps.manejoserviciokotlininc.services.MusicPlayer
 import udl.eps.manejoserviciokotlininc.services.TrainPlayer
@@ -14,11 +17,11 @@ class ServiceFactory(context: Context) {
     private val defaultIntent = Intent(context, MusicPlayer::class.java)
 
     fun getService(intent: Intent): Intent =
-        when (intent.getStringExtra("type")) {
-            "train" -> trainIntent
-            "music" -> musicIntent
-            "music-custom" -> {
-                musicCustom = musicCustom.putExtra("music_uri", intent.getStringExtra("music_uri"))
+        when (intent.getStringExtra(TYPE)) {
+            SERVICE_TYPE.TRAIN_PLAYER.name -> trainIntent
+            SERVICE_TYPE.MUSIC_PLAYER.name -> musicIntent
+            SERVICE_TYPE.CUSTOM_MUSIC_PLAYER.name -> {
+                musicCustom = musicCustom.putExtra(MUSIC_URI, intent.getStringExtra(MUSIC_URI))
                 musicCustom
             }
             else -> defaultIntent

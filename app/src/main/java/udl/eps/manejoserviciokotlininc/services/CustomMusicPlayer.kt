@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.IBinder
 import android.widget.Toast
 import udl.eps.manejoserviciokotlininc.R
+import udl.eps.manejoserviciokotlininc.constants.CustomMusicExtras.MUSIC_URI
 
 class CustomMusicPlayer : Service() {
 
@@ -24,7 +25,7 @@ class CustomMusicPlayer : Service() {
         Toast.makeText(this, R.string.iniserv, Toast.LENGTH_LONG).show()
         choosePlayer = MediaPlayer.create(
             this,
-            Uri.parse(intent?.getStringExtra("music_uri").toString())
+            Uri.parse(intent?.getStringExtra(MUSIC_URI).toString())
         )
         choosePlayer?.isLooping = true
         choosePlayer?.start()

@@ -3,6 +3,7 @@ package udl.eps.manejoserviciokotlininc
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import udl.eps.manejoserviciokotlininc.constants.ServicesExtras
 import udl.eps.manejoserviciokotlininc.factory.ServiceFactory
 
 class AudioReceiver : BroadcastReceiver() {
@@ -24,7 +25,7 @@ class AudioReceiver : BroadcastReceiver() {
     }
 
     private fun execute(intent: Intent, context: Context) {
-        if (intent.getStringExtra("type") == "stop")
+        if (intent.getStringExtra(ServicesExtras.TYPE) == ServicesExtras.SERVICE_TYPE.STOP_PLAYERS.name)
             FactorySingleton.factory!!.getServices().forEach { s -> context.stopService(s) }
         else
             executeNonStopService(intent, context)

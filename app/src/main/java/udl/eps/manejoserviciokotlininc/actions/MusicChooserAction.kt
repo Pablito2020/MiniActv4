@@ -6,6 +6,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import udl.eps.manejoserviciokotlininc.AudioReceiver
+import udl.eps.manejoserviciokotlininc.constants.CustomMusicExtras
+import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.SERVICE_TYPE
+import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.TYPE
 
 class MusicChooserAction : Command {
 
@@ -16,9 +19,9 @@ class MusicChooserAction : Command {
             musicLauncher =
                 activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                     val mediaIntent = Intent(activity, AudioReceiver::class.java)
-                    mediaIntent.putExtra("type", "music-custom")
+                    mediaIntent.putExtra(TYPE, SERVICE_TYPE.CUSTOM_MUSIC_PLAYER.name)
                     val uri = it.data?.data.toString()
-                    mediaIntent.putExtra("music_uri", uri)
+                    mediaIntent.putExtra(CustomMusicExtras.MUSIC_URI, uri)
                     activity.sendBroadcast(mediaIntent)
                 }
         }
