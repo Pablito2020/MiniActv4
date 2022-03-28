@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,6 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="130dp"
         android:gravity="center"
         android:padding="20dp"
         android:text="@string/headerActivity"
@@ -17,17 +18,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/chooseMusicButton"
+        android:layout_marginBottom="203dp"
         android:gravity="center"
         tools:ignore="MissingConstraints">
 
         <Button
             android:id="@+id/trainButton"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/trainButton" />
 
         <Button
             android:id="@+id/musicButton"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -39,12 +44,24 @@
         android:id="@+id/chooseMusicButton"
         android:layout_width="149dp"
         android:layout_height="91dp"
+        android:layout_above="@+id/finishButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="131dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginBottom="45dp"
         android:text="@string/choose_button_info" />
 
     <Button
         android:id="@+id/finishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="99dp"
         android:text="@string/button_finish" />
 
-</LinearLayout>
+</RelativeLayout>
