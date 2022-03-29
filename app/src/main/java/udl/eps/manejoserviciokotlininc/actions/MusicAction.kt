@@ -2,7 +2,7 @@ package udl.eps.manejoserviciokotlininc.actions
 
 import android.content.Context
 import android.content.Intent
-import udl.eps.manejoserviciokotlininc.AudioReceiver
+import udl.eps.manejoserviciokotlininc.services.AudioReceiver
 import udl.eps.manejoserviciokotlininc.constants.ServicesExtras
 
 class MusicAction(private val context: Context) : Command {

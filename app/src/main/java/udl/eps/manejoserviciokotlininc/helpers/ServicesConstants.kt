@@ -1,5 +1,9 @@
 package udl.eps.manejoserviciokotlininc.constants
 
+/**
+ * This file contains all the Intent Extra constants for the different
+ * types of services
+ */
 object ServicesExtras {
     val TYPE = "type"
 

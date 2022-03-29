@@ -4,13 +4,13 @@ import android.content.Context
 import androidx.activity.ComponentActivity
 import udl.eps.manejoserviciokotlininc.databinding.ActivityMainBinding
 
-class ButtonActionFactory(private val binding: ActivityMainBinding, activity: ComponentActivity) {
+class ActionFactory(private val binding: ActivityMainBinding, activity: ComponentActivity) {
 
     private val context: Context = activity
 
     init {
         MusicChooserAction.Initializer.setUp(activity)
-        CustomMediaPlayerAction.Initializer.setUp(activity)
+        CustomMusicChooserAction.Initializer.setUp(activity)
     }
 
     fun getAction(buttonId: Int) = when (buttonId) {
@@ -18,7 +18,7 @@ class ButtonActionFactory(private val binding: ActivityMainBinding, activity: Co
         binding.finishButton.id -> FinishAction(context)
         binding.musicButton.id -> MusicAction(context)
         binding.chooseMusicButton.id -> MusicChooserAction()
-        binding.ownMusicButton.id -> CustomMediaPlayerAction()
+        binding.ownMusicButton.id -> CustomMusicChooserAction()
         else -> throw Error("Unsupported button")
     }
 

@@ -5,7 +5,7 @@ import android.provider.MediaStore
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import udl.eps.manejoserviciokotlininc.AudioReceiver
+import udl.eps.manejoserviciokotlininc.services.AudioReceiver
 import udl.eps.manejoserviciokotlininc.constants.CustomMusicExtras
 import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.SERVICE_TYPE
 import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.TYPE

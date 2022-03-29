@@ -6,15 +6,16 @@ import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import udl.eps.manejoserviciokotlininc.actions.ButtonActionFactory
+import udl.eps.manejoserviciokotlininc.actions.ActionFactory
 import udl.eps.manejoserviciokotlininc.databinding.ActivityMainBinding
+import udl.eps.manejoserviciokotlininc.services.AudioReceiver
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var audioReceiver: BroadcastReceiver
-    private lateinit var actionFactory: ButtonActionFactory
+    private lateinit var actionFactory: ActionFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setUp() {
         audioReceiver = AudioReceiver()
-        actionFactory = ButtonActionFactory(binding, this)
+        actionFactory = ActionFactory(binding, this)
         registerReceiver(audioReceiver, IntentFilter(Intent.ACTION_HEADSET_PLUG))
     }
 

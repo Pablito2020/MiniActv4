@@ -1,13 +1,10 @@
-package udl.eps.manejoserviciokotlininc.factory
+package udl.eps.manejoserviciokotlininc.services
 
 import android.content.Context
 import android.content.Intent
 import udl.eps.manejoserviciokotlininc.constants.CustomMusicExtras.MUSIC_URI
 import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.SERVICE_TYPE
 import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.TYPE
-import udl.eps.manejoserviciokotlininc.services.CustomMusicPlayer
-import udl.eps.manejoserviciokotlininc.services.MusicPlayer
-import udl.eps.manejoserviciokotlininc.services.TrainPlayer
 
 class ServiceFactory(context: Context) {
 

@@ -13,7 +13,7 @@
         android:theme="@style/Theme.ManejoServicioKotlinInc">
 
         <receiver
-            android:name=".AudioReceiver"
+            android:name=".services.AudioReceiver"
             android:enabled="true" />
 
         <activity

@@ -1,10 +1,9 @@
-package udl.eps.manejoserviciokotlininc
+package udl.eps.manejoserviciokotlininc.services
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import udl.eps.manejoserviciokotlininc.constants.ServicesExtras
-import udl.eps.manejoserviciokotlininc.factory.ServiceFactory
 
 class AudioReceiver : BroadcastReceiver() {
 

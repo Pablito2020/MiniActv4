@@ -4,12 +4,12 @@ import android.content.Intent
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import udl.eps.manejoserviciokotlininc.AudioReceiver
+import udl.eps.manejoserviciokotlininc.services.AudioReceiver
 import udl.eps.manejoserviciokotlininc.constants.CustomMusicExtras.MUSIC_URI
 import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.SERVICE_TYPE
 import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.TYPE
 
-class CustomMediaPlayerAction : Command {
+class CustomMusicChooserAction : Command {
 
     object Initializer {
         internal var musicLauncher: ActivityResultLauncher<Intent>? = null
