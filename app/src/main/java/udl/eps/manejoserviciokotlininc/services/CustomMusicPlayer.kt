@@ -23,9 +23,11 @@ class CustomMusicPlayer : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
         Toast.makeText(this, R.string.init_custom_music_service, Toast.LENGTH_LONG).show()
+        if (choosePlayer != null)
+            choosePlayer?.stop()
         choosePlayer = MediaPlayer.create(
             this,
-            Uri.parse(intent?.getStringExtra(MUSIC_URI).toString())
+            Uri.parse(intent?.extras?.getString(MUSIC_URI).toString())
         )
         choosePlayer?.isLooping = true
         choosePlayer?.start()

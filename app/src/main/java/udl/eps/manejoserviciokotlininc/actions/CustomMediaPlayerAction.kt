@@ -5,8 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import udl.eps.manejoserviciokotlininc.AudioReceiver
-import udl.eps.manejoserviciokotlininc.constants.CustomMusicExtras
-import udl.eps.manejoserviciokotlininc.constants.ServicesExtras
+import udl.eps.manejoserviciokotlininc.constants.CustomMusicExtras.MUSIC_URI
+import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.SERVICE_TYPE
+import udl.eps.manejoserviciokotlininc.constants.ServicesExtras.TYPE
 
 class CustomMediaPlayerAction : Command {
 
@@ -16,15 +17,13 @@ class CustomMediaPlayerAction : Command {
         fun setUp(activity: ComponentActivity) {
             musicLauncher =
                 activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-                    val mediaIntent = Intent(activity, AudioReceiver::class.java)
-                    mediaIntent.putExtra(
-                        ServicesExtras.TYPE,
-                        ServicesExtras.SERVICE_TYPE.CUSTOM_MUSIC_PLAYER.name
-                    )
-                    val uri = it.data?.getStringExtra("music_uri").toString()
-                    println(uri)
-                    mediaIntent.putExtra(CustomMusicExtras.MUSIC_URI, uri)
-                    activity.sendBroadcast(mediaIntent)
+                    if (it != null && it.data != null) {
+                        val mediaIntent = Intent(activity, AudioReceiver::class.java)
+                        mediaIntent.putExtra(TYPE, SERVICE_TYPE.CUSTOM_MUSIC_PLAYER.name)
+                        val uri = it.data?.getStringExtra(MUSIC_URI).toString()
+                        mediaIntent.putExtra(MUSIC_URI, uri)
+                        activity.sendBroadcast(mediaIntent)
+                    }
                 }
         }
     }

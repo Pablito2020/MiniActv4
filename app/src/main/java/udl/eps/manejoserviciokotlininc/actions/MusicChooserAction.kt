@@ -18,11 +18,13 @@ class MusicChooserAction : Command {
         fun setUp(activity: ComponentActivity) {
             musicLauncher =
                 activity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-                    val mediaIntent = Intent(activity, AudioReceiver::class.java)
-                    mediaIntent.putExtra(TYPE, SERVICE_TYPE.CUSTOM_MUSIC_PLAYER.name)
-                    val uri = it.data?.data.toString()
-                    mediaIntent.putExtra(CustomMusicExtras.MUSIC_URI, uri)
-                    activity.sendBroadcast(mediaIntent)
+                    if (it != null && it.data != null) {
+                        val mediaIntent = Intent(activity, AudioReceiver::class.java)
+                        mediaIntent.putExtra(TYPE, SERVICE_TYPE.CUSTOM_MUSIC_PLAYER.name)
+                        val uri = it.data?.data.toString()
+                        mediaIntent.putExtra(CustomMusicExtras.MUSIC_URI, uri)
+                        activity.sendBroadcast(mediaIntent)
+                    }
                 }
         }
     }
