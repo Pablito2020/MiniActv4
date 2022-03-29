@@ -10,7 +10,6 @@ import udl.eps.manejoserviciokotlininc.constants.ServicesExtras
 
 class CustomMediaPlayerAction : Command {
 
-
     object Initializer {
         internal var musicLauncher: ActivityResultLauncher<Intent>? = null
 
@@ -22,7 +21,8 @@ class CustomMediaPlayerAction : Command {
                         ServicesExtras.TYPE,
                         ServicesExtras.SERVICE_TYPE.CUSTOM_MUSIC_PLAYER.name
                     )
-                    val uri = it.data?.data.toString()
+                    val uri = it.data?.getStringExtra("music_uri").toString()
+                    println(uri)
                     mediaIntent.putExtra(CustomMusicExtras.MUSIC_URI, uri)
                     activity.sendBroadcast(mediaIntent)
                 }
@@ -31,13 +31,12 @@ class CustomMediaPlayerAction : Command {
 
     override fun execute() {
         if (Initializer.musicLauncher != null) {
-            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            val intent = Intent(Intent.ACTION_PICK)
             intent.type = "audio/*"
             Initializer.musicLauncher!!.launch(intent)
         } else {
             throw UnsupportedOperationException("Please, setup the action first!")
         }
     }
-
 
 }
