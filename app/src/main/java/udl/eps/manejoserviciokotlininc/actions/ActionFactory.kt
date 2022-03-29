@@ -19,6 +19,7 @@ class ActionFactory(private val binding: ActivityMainBinding, activity: Componen
         binding.musicButton.id -> MusicAction(context)
         binding.chooseMusicButton.id -> MusicChooserAction()
         binding.ownMusicButton.id -> CustomMusicChooserAction()
+        binding.openOwnMusicServiceButton.id -> CustomMusicServiceOpenerAction(context)
         else -> throw Error("Unsupported button")
     }
 

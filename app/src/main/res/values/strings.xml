@@ -14,5 +14,6 @@
     <string name="init_train_service">Initialized Train Service</string>
     <string name="init_music_service">Initialized Music Service</string>
     <string name="init_custom_music_service">Initialized custom music service</string>
-    <string name="own_music_player_button">Music Player Propio</string>
+    <string name="own_music_player_button">Choose Music from own music service</string>
+    <string name="open_own_music_service">Open own music service</string>
 </resources>
